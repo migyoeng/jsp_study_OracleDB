@@ -15,3 +15,9 @@
 4-2.글 삭제 -> __bbsDel.jsp__ -> __bbsDelProc.jsp__
 
 4-3.답글 달기 -> __bbsReply.jsp__ -> __bbsReplyProc.jsp__
+
+## myweb 개인 프로젝트 2차 푸시
++ bbsList.jsp 파일에 검색 기능 추가
+- 제목+내용, 제목, 내용, 작성자명 구분
+- 검색어에 따른 게시글 조회
+- 검색 후 다른 활동 후 뒤로 가기 할 경우 검색 상태 유지
