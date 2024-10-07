@@ -10,6 +10,8 @@
 
 - activation.jar
 
+# bbs
+
 ## myweb 개인 프로젝트 1차 푸시
 - bbs 테이블 생성 - 답글형 게시판 제작
 
@@ -58,6 +60,7 @@
 
 -페이징 구현 메소드
 
+# member
 
 ## myweb 개인 프로젝트 - member 테이블 푸시
 - 로그인/회원가입 구현
@@ -142,3 +145,15 @@ MemberDAO Class의 duplecateEmail() 메소드를 활용하여
 form에서 입력한 값을 불러와 memberDto 필드에 저장
 
 저장 후 memberDto를 member 테이블에 insert 후 행 추가 완료 시 회원가입 성공
+
+# mail
+
+- 메일 전송 페이지 -> mailForm.jsp -> mailProc.jsp
+
+보내는 사람, 받는 사람의 이메일 주소, 제목, 내용 입력
+
+내용(content) 부분 summernote 스마트 에디터 활용
+
+작성 후 mailProc.jsp 로 전달 및 패키지를 활용한 메일 전송
+
+cafe24.com 메일 서버 사용
