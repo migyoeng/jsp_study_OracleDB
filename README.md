@@ -87,7 +87,7 @@ session 변수를 통해 테이블에 저장된 회원 정보와 사용자의 �
 이미 로그인한 상태라면 logout.jsp로 이동할 수 있는 버튼 페이지 출력
 
 
-- 회원가입 폼 -> __memberForm.jsp__
+- 회원가입 폼 -> __agreement.jsp__ ->  __memberForm.jsp__
 
 비회원이라면 loginForm.jsp에 있는 회원가입 버튼을 통해 myweb에 가입할 수 있다
 
@@ -107,3 +107,38 @@ memberForm.jsp에서 아이디 중복 확인 버튼을 누를 시 아이디 가�
 지운 뒤 loginForm.jsp로 이동
 
 - 회원/비회원 구분을 위해 아이디, 비밀번호, 회원 등급을 세션 변수로 관리 -> __auth.jsp__
+
+
+##member 테이블 - 로그인/회원가입단 기능 추가
+
+- 회원가입 시 아이디, 이메일 중복확인(유효성 검사)
+
+1. 
+
+idCheckForm.jsp -> idCheckProc.jsp
+
+사용할 아이디를 form에서 입력 후 javascript로 아이디 입력 조건 검사
+
+조건에 부합 시 idCheckProc.jsp에 전달
+
+MemberDAO Class의 duplecateID() 메소드를 활용하여
+
+테이블에 중복된 아이디가 있는지 검사 - count(id)
+
+2.
+
+emailCheckForm.jsp -> emailCheckProc.jsp
+
+사용할 이메일을 form에서 입력 후 javascript로 이메일 형태 조건 검사
+
+조건 충족 후 emailCheckProc.jsp에 전달
+
+MemberDAO Class의 duplecateEmail() 메소드를 활용하여
+
+테이블에 중복된 이메일이 있는지 검사 - count(email)
+
+- 회원가입 완료(회원정보 추가) - memberForm.jsp -> memberProc.jsp
+
+form에서 입력한 값을 불러와 memberDto 필드에 저장
+
+저장 후 memberDto를 member 테이블에 insert 후 행 추가 완료 시 회원가입 성공
