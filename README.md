@@ -171,3 +171,20 @@ form에서 입력한 값을 memberDto에 저장 후 MemberDAO 클래스의 findI
 작성 후 mailProc.jsp 로 전달 및 패키지를 활용한 메일 전송
 
 cafe24.com 메일 서버 사용
+
+# pds 포토갤러리
+
+- pds 테이블 생성 - 포토갤러리 게시판 제작
+
+1.jsp 파일들 공통 코드 -> __ssi.jsp__
+
+2.새 글 작성 -> pdsForm.jsp -> __pdsIns.jsp__
+form 요소로 제목, 작성자 이름, 사진 파일 첨부
+업로드한 사진 파일이 저장될 수 있는 /storage 폴더 생성
+insert문을 활용하여 새 글 작성
+
+3.작성 글 목록 -> __pdsList.jsp__
+첨부된 사진 파일이 페이지에 보일 수 있도록 <img> 태그의 src 경로를
+../storage/로 잡아준다
+
+4.작성 게시글 자세히 보기 -> __pdsRead.jsp__

@@ -206,4 +206,60 @@ function findIDCheck(){
 	}//if end
 
 	return true;
-}//loginCheck() end
+}//findIDCheck() end
+
+//포토갤러리 유효성 검사
+function pdsCheck(){
+	 //1) 작성자 칸 2글자 이상 입력
+	 let wname = $("#wname").val(); //id="wname" 인 태그의 value 값 가져오기
+	 wname = wname.trim();
+	 if(wname < 2){
+		 alert("작성자명을 2자 이상 입력해주시기 바랍니다.");
+		 $("#wname").focus();    //작성자 칸에 커서 생성
+		 return false;           //submit 하지 않음
+	 }//if end
+ 
+	 //2) 제목 2글자 이상 입력
+	 let subject = $("#subject").val();
+	 subject = subject.trim();
+	 if(subject < 2){
+		 alert("제목을 2자 이상 입력해주시기 바랍니다.");
+		 $("#subject").focus();
+		 return false;
+	 }//if end
+ 
+	 //3) 비밀번호 : 4자리 이상, 숫자만 입력
+	 let passwd = $("#passwd").val();
+	 passwd = passwd.trim();
+	 //isNaN() : 숫자로 변경 가능 = false, 숫자로 변환 불가능한 경우 = true
+	 if(passwd.length < 4 || isNaN(passwd)){
+		 alert("비밀번호를 4자리 이상 숫자로 입력해주시기 바랍니다.");
+		 $("#passwd").focus();
+		 return false;
+	 }//if end
+
+	 //4) 첨부파일
+	 //-> 파일의 확장명이 이미지 파일인지 검사(png, jpg, gif)
+	 let filename = $("#filename").val();
+	 filename = filename.trim();
+	 //파일 첨부 여부
+	 if(filename.length == 0){
+		alert("파일을 첨부해주세요");
+		return false;
+	 } else {
+		let dot = filename.lastIndexOf("."); //마지막 .(dot)의 인덱스 번호
+		let ext = filename.substr(dot+1); //. 이후 문자열만 남기기(확장명)
+		ext = ext.toLowerCase(); //전체 소문자로 치환
+
+		//첨부한 파일이 이미지 파일인지 확인
+		if(ext == "png" || ext == "jpg" || ext == "gif" || ext == "jpeg"){
+			return true;
+		} else {
+			alert("이미지 파일(png,jpg,gif,jpeg)만 첨부 가능합니다");
+			return false;
+		}//if end
+
+	 }//if end
+ 
+	 return true;    //onsubmit 호출 시 true 반환 -> 서버로 전송
+}//pdsCheck() end
